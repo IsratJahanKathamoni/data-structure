@@ -1,29 +1,29 @@
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
 int main()
 {
-    int arr2D[10][10], * arr1D;
-    int n, m, i, j;
-
-    cout<<"Enter Number of Rows: "<<endl;
-    cin>>n;
-    cout<<"Enter Number of colums: "<<endl;
-    cin>>m;
-    cout<<"Enter 2D Array: "<<endl;
-    for (i = 0; i < n; ++i) {
-        for (j = 0; j < m; ++j) {
-            cin>>arr2D[i][j];
+    int z;
+    char a[100];
+    cout<<" Enter the size of  array size : ";
+    cin>>z;
+    for (int i = 0; i <z ; ++i)
+    {
+        cin>>a[i];
+    }
+    int temp;
+    for (int i = 0; i <z ; ++i) {
+        for (int j = i+1; j <z ; ++j) {
+            if(a[i]>a[j])
+            {
+                temp=a[i];
+                a[i]=a[j];
+                a[j]=temp;
+            }
         }
     }
-    arr1D = (int*)malloc(n * m * sizeof(int));
+    for (int i = 0; i <z ; ++i)
+    {
+        cout<<a[i]<<" ";
 
-    for (i = 0; i < n; ++i) {
-        for (j = 0; j < m; ++j) {
-            arr1D[i * m + j] = arr2D[i][j];
-        }
-    }
-    cout<<"1D Array: ";
-    for (i = 0; i < n * m; ++i) {
-        cout<<arr1D[i]<<", ";
     }
 }
